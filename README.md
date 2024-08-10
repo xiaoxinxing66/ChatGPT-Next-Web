@@ -4,7 +4,7 @@
   <img src="./docs/images/ent.svg" alt="icon"/>
 </a>
 
-<h1 align="center">NextChat (ChatGPT Next Web)</h1>
+<h1 align="center"> sivan886.top (ChatGPT Next Web)</h1>
 
 English / [简体中文](./README_CN.md)
 

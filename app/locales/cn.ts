@@ -7,13 +7,13 @@ const cn = {
   WIP: "该功能仍在开发中……",
   Error: {
     Unauthorized: isApp
-      ? "检测到无效 API Key，请前往[设置](/#/settings)页检查 API Key 是否配置正确。"
-      : "访问密码不正确或为空，请前往[登录](/#/auth)页输入正确的访问密码，或者在[设置](/#/settings)页填入你自己的 OpenAI API Key。",
+      ? "【简历访问】约面试可获取Chatgpt4.0-turbo-2024.12 openai最强模型 访问权限 :) 快来约面试吧！"
+      : "【简历访问】约面试可获取Chatgpt4.0-turbo-2024.12 openai最强模型 访问权限 :) 快来约面试吧！，【私人访问】前往[登录](/#/auth)页输入正确的访问密码",
   },
   Auth: {
     Title: "需要密码",
     Tips: "管理员开启了密码验证，请在下方填入访问码",
-    SubTips: "或者输入你的 OpenAI 或 Google API 密钥",
+    SubTips: "管理员密钥访问：",
     Input: "在此处填写访问码",
     Confirm: "确认",
     Later: "稍后再说",
@@ -69,13 +69,13 @@ const cn = {
     Rename: "重命名对话",
     Typing: "正在输入…",
     Input: (submitKey: string) => {
-      var inputHints = `${submitKey} 发送`;
+      var inputHints = `${submitKey} siu`;
       if (submitKey === String(SubmitKey.Enter)) {
         inputHints += "，Shift + Enter 换行";
       }
       return inputHints + "，/ 触发补全，: 触发命令";
     },
-    Send: "发送",
+    Send: "siu",
     Config: {
       Reset: "清除记忆",
       SaveAs: "存为面具",
@@ -484,7 +484,7 @@ const cn = {
   },
   Store: {
     DefaultTopic: "新的聊天",
-    BotHello: "有什么可以帮你的吗",
+    BotHello: "你好！我是Sivan_xin开发的AI助手，我集成了国内外50 + AI模型。",
     Error: "出错了，稍后重试吧",
     Prompt: {
       History: (content: string) => "这是历史聊天总结作为前情提要：" + content,

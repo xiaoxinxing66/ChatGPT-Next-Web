@@ -4,7 +4,7 @@
   <img src="./docs/images/ent.svg" alt="icon"/>
 </a>
 
-<h1 align="center">NextChat</h1>
+<h1 align="center">Sivan886.top</h1>
 
 一键免费部署你的私人 ChatGPT 网页应用，支持 GPT3, GPT4 & Gemini Pro 模型。
 

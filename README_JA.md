@@ -1,7 +1,7 @@
 <div align="center">
 <img src="./docs/images/ent.svg" alt="プレビュー"/>
 
-<h1 align="center">NextChat</h1>
+<h1 align="center">Sivan886.top</h1>
 
 ワンクリックで無料であなた専用の ChatGPT ウェブアプリをデプロイ。GPT3、GPT4 & Gemini Pro モデルをサポート。
 

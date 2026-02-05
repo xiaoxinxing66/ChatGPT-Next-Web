@@ -8,6 +8,7 @@ console.log("[Next] build with chunk: ", !disableChunk);
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  basePath: "/chatgpt",
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
@@ -67,7 +68,7 @@ if (mode !== "export") {
       // adjust for previous version directly using "/api/proxy/" as proxy base route
       {
         source: "/api/proxy/v1/:path*",
-        destination: "https://api.openai.com/v1/:path*",
+        destination: "https://vip.dkai.cc/v1/:path*",
       },
       {
         // https://{resource_name}.openai.azure.com/openai/deployments/{deploy_name}/chat/completions
@@ -80,7 +81,7 @@ if (mode !== "export") {
       },
       {
         source: "/api/proxy/openai/:path*",
-        destination: "https://api.openai.com/:path*",
+        destination: "https://vip.dkai.cc/:path*",
       },
       {
         source: "/api/proxy/anthropic/:path*",

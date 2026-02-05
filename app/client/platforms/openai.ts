@@ -94,17 +94,19 @@ export class ChatGPTApi implements LLMApi {
     if (baseUrl.length === 0) {
       const isApp = !!getClientConfig()?.isApp;
       const apiPath = isAzure ? ApiPath.Azure : ApiPath.OpenAI;
-      baseUrl = isApp ? DEFAULT_API_HOST + "/proxy" + apiPath : apiPath;
+      // 使用相对路径，让浏览器自动处理 basePath
+      const relativeApiPath = apiPath.startsWith("/")
+        ? apiPath.slice(1)
+        : apiPath;
+      baseUrl = isApp ? DEFAULT_API_HOST + "/proxy" + apiPath : relativeApiPath;
     }
+
+    baseUrl = baseUrl.trim(); // 去除可能存在的空格
 
     if (baseUrl.endsWith("/")) {
       baseUrl = baseUrl.slice(0, baseUrl.length - 1);
     }
-    if (
-      !baseUrl.startsWith("http") &&
-      !isAzure &&
-      !baseUrl.startsWith(ApiPath.OpenAI)
-    ) {
+    if (!baseUrl.startsWith("http") && !isAzure) {
       baseUrl = "https://" + baseUrl;
     }
 
@@ -235,6 +237,9 @@ export class ChatGPTApi implements LLMApi {
         signal: controller.signal,
         headers: getHeaders(),
       };
+
+      console.log("[Request] Path:", chatPath);
+      console.log("[Request] Headers:", chatPayload.headers);
 
       // make a fetch request
       const requestTimeoutId = setTimeout(

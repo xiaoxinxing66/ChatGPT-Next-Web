@@ -4,13 +4,13 @@
   <img src="./docs/images/ent.svg" alt="icon"/>
 </a>
 
-<h1 align="center"> sivan886.top (ChatGPT Next Web)</h1>
+<h1 align="center"> Sivan的AI空间 (ChatGPT Next Web)</h1>
 
 English / [简体中文](./README_CN.md)
 
 One-Click to get a well-designed cross-platform ChatGPT web UI, with GPT3, GPT4 & Gemini Pro support.
 
-【sivan886.top 二次开发专用】 一键免费部署你的跨平台私人 ChatGPT 应用, 支持 GPT3, GPT4 & Gemini Pro 模型。
+【Sivan的AI空间 二次开发专用】 一键免费部署你的跨平台私人 ChatGPT 应用, 支持 GPT3, GPT4 & Gemini Pro 模型。
 
 
 [<img src="https://vercel.com/button" alt="Deploy on Zeabur" height="30">](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FChatGPTNextWeb%2FChatGPT-Next-Web&env=OPENAI_API_KEY&env=CODE&project-name=nextchat&repository-name=NextChat) [<img src="https://zeabur.com/button.svg" alt="Deploy on Zeabur" height="30">](https://zeabur.com/templates/ZBUEFA)  [<img src="https://gitpod.io/button/open-in-gitpod.svg" alt="Open in Gitpod" height="30">](https://gitpod.io/#https://github.com/Yidadaa/ChatGPT-Next-Web)
@@ -279,7 +279,7 @@ iflytek Api Secret.
 
 ### `HIDE_USER_API_KEY` (optional)
 
-> Default: Empty
+> Default: Empty 
 
 If you do not want users to input their own API key, set this value to 1.
 

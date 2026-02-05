@@ -5,42 +5,47 @@
   --theme: light;
 
   /* color */
-  --white: white;
-  --black: rgb(48, 48, 48);
-  --gray: rgb(250, 250, 250);
-  --primary: rgb(108, 171, 221);
-  --second: rgb(231, 248, 255);
-  --hover-color: #f3f3f3;
-  --bar-color: rgba(0, 0, 0, 0.1);
+  --white: rgba(30, 41, 59, 0.7); // 玻璃拟态背景
+  --black: #e2e8f0; // 浅色文字
+  --gray: #0f172a; // Slate 900 背景
+  --primary: rgb(59, 130, 246); // Blue 500
+  --second: rgba(30, 41, 59, 0.5);
+  --hover-color: rgba(255, 255, 255, 0.05);
+
+  --bar-color: rgba(255, 255, 255, 0.1);
+
+  --border-in-light: 1px solid rgba(255, 255, 255, 0.1);
+
   --theme-color: var(--gray);
 
   /* shadow */
   --shadow: 50px 50px 100px 10px rgb(0, 0, 0, 0.1);
   --card-shadow: 0px 2px 4px 0px rgb(0, 0, 0, 0.05);
 
-  /* stroke */
-  --border-in-light: 1px solid rgb(222, 222, 222);
+  div:not(.no-dark) > svg {
+    filter: invert(1);
+  }
 }
 
 @mixin dark {
   --theme: dark;
 
   /* color */
-  --white: rgb(30, 30, 30);
-  --black: rgb(187, 187, 187);
-  --gray: rgb(21, 21, 21);
-  --primary: rgb(29, 147, 171);
-  --second: rgb(27 38 42);
-  --hover-color: #323232;
+  --white: rgba(30, 41, 59, 0.7); // 玻璃拟态背景
+  --black: #e2e8f0; // 浅色文字
+  --gray: #0f172a; // Slate 900 背景
+  --primary: rgb(59, 130, 246); // Blue 500
+  --second: rgba(30, 41, 59, 0.5);
+  --hover-color: rgba(255, 255, 255, 0.05);
 
   --bar-color: rgba(255, 255, 255, 0.1);
 
-  --border-in-light: 1px solid rgba(255, 255, 255, 0.192);
+  --border-in-light: 1px solid rgba(255, 255, 255, 0.1);
 
   --theme-color: var(--gray);
 
   div:not(.no-dark) > svg {
-    filter: invert(0.5);
+    filter: invert(1);
   }
 }
 
@@ -90,8 +95,7 @@
 html {
   height: var(--full-height);
 
-  font-family: "Noto Sans", "SF Pro SC", "SF Pro Text", "SF Pro Icons",
-    "PingFang SC", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 body {
@@ -107,6 +111,7 @@ body {
   user-select: none;
   touch-action: pan-x pan-y;
   overflow: hidden;
+  position: relative;
 
   @media only screen and (max-width: 600px) {
     background-color: var(--second);
@@ -117,8 +122,49 @@ body {
   }
 }
 
+/* 背景氛围光 */
+body::before {
+  content: "";
+  position: fixed;
+  top: -10%;
+  left: -10%;
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  background: rgba(37, 99, 235, 0.2); // blue-600/20
+  filter: blur(120px);
+  z-index: -1;
+  pointer-events: none;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  bottom: -10%;
+  right: -10%;
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  background: rgba(147, 51, 234, 0.2); // purple-600/20
+  filter: blur(120px);
+  z-index: -1;
+  pointer-events: none;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation-delay: 2s;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
 ::-webkit-scrollbar {
-  --bar-width: 10px;
+  --bar-width: 6px;
   width: var(--bar-width);
   height: var(--bar-width);
 }
@@ -128,10 +174,14 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--bar-color);
-  border-radius: 20px;
+  background-color: #475569;
+  border-radius: 3px;
   background-clip: content-box;
   border: 1px solid transparent;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #64748b;
 }
 
 select {
@@ -143,6 +193,7 @@ select {
   background-color: var(--white);
   color: var(--black);
   text-align: center;
+  backdrop-filter: blur(12px);
 }
 
 label {
@@ -237,6 +288,7 @@ input[type="password"] {
   padding: 0 10px;
   max-width: 50%;
   font-family: inherit;
+  backdrop-filter: blur(12px);
 }
 
 div.math {
@@ -254,6 +306,7 @@ div.math {
   display: flex;
   align-items: center;
   justify-content: center;
+  backdrop-filter: blur(4px);
 
   @media screen and (max-width: 600px) {
     align-items: flex-end;
@@ -324,6 +377,7 @@ pre {
   overflow: auto;
   background-color: var(--white);
   color: var(--black);
+  backdrop-filter: blur(12px);
 
   pre {
     overflow: auto;

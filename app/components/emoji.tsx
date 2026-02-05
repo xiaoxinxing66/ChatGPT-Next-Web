@@ -36,11 +36,12 @@ export function Avatar(props: { model?: ModelType; avatar?: string }) {
   if (props.model) {
     return (
       <div className="no-dark">
-        {props.model?.startsWith("gpt-4") ? (
-          <BlackBotIcon className="user-avatar" />
-        ) : (
-          <BotIcon className="user-avatar" />
-        )}
+        <img
+          src="/chatgpt/maomeme.jpg"
+          alt="bot"
+          className="user-avatar"
+          style={{ width: "30px", height: "30px" }}
+        />
       </div>
     );
   }

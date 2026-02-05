@@ -484,7 +484,7 @@ const cn = {
   },
   Store: {
     DefaultTopic: "新的聊天",
-    BotHello: "你好！我是Sivan_xin开发的AI助手，我集成了国内外50 + AI模型。",
+    BotHello: "你好！我是Sivan_xin开发的AI助手喵~",
     Error: "出错了，稍后重试吧",
     Prompt: {
       History: (content: string) => "这是历史聊天总结作为前情提要：" + content,

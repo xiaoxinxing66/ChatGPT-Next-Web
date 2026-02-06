@@ -10,8 +10,13 @@ import { GoogleTagManager } from "@next/third-parties/google";
 const serverConfig = getServerSideConfig();
 
 export const metadata: Metadata = {
-  title: "希文再见",
+  title: "Sivan's AI Space",
   description: "Your personal ChatGPT Chat Bot.",
+  icons: {
+    icon: "/chatgpt/S.svg",
+    shortcut: "/chatgpt/S.svg",
+    apple: "/chatgpt/S.svg",
+  },
   appleWebApp: {
     title: "Sivan886.top",
     statusBarStyle: "default",
@@ -41,8 +46,8 @@ export default function RootLayout({
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
-        <link rel="manifest" href="/site.webmanifest"></link>
-        <script src="/serviceWorkerRegister.js" defer></script>
+        <link rel="manifest" href="/chatgpt/site.webmanifest"></link>
+        <script src="/chatgpt/serviceWorkerRegister.js" defer></script>
       </head>
       <body>
         {children}

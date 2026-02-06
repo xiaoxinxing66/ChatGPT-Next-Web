@@ -8,7 +8,7 @@
     "withGlobalTauri": true
   },
   "package": {
-    "productName": "希文再见",
+    "productName": "Sivan's AI Space",
     "version": "2.14.1"
   },
   "tauri": {
@@ -105,7 +105,7 @@
         "fullscreen": false,
         "height": 600,
         "resizable": true,
-        "title": "希文再见",
+        "title": "Sivan's AI Space",
         "width": 960,
         "hiddenTitle": true,
         "titleBarStyle": "Overlay"

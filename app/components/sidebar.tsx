@@ -12,6 +12,7 @@ import DeleteIcon from "../icons/delete.svg";
 import MaskIcon from "../icons/mask.svg";
 import DragIcon from "../icons/drag.svg";
 import DiscoveryIcon from "../icons/discovery.svg";
+import ReturnIcon from "../icons/return.svg";
 
 import Locale from "../locales";
 
@@ -224,6 +225,14 @@ export function SideBar(props: { className?: string }) {
       shouldNarrow={shouldNarrow}
       {...props}
     >
+      <div style={{ padding: "10px 20px 0" }}>
+        <IconButton
+          icon={<ReturnIcon />}
+          text="回到首页"
+          onClick={() => (window.location.href = "/")}
+          shadow
+        />
+      </div>
       <SideBarHeader
         title="Sivan的AI空间"
         subTitle="私人部署的本地化AI工具-dev-Sivan"

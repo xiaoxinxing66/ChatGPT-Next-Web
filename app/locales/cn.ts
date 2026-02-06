@@ -69,13 +69,13 @@ const cn = {
     Rename: "重命名对话",
     Typing: "正在输入…",
     Input: (submitKey: string) => {
-      var inputHints = `${submitKey} siu`;
+      var inputHints = `${submitKey} 喵`;
       if (submitKey === String(SubmitKey.Enter)) {
         inputHints += "，Shift + Enter 换行";
       }
       return inputHints + "，/ 触发补全，: 触发命令";
     },
-    Send: "siu",
+    Send: "喵",
     Config: {
       Reset: "清除记忆",
       SaveAs: "存为面具",

@@ -462,10 +462,7 @@ export const useChatStore = createPersistStore(
             ]
           : [];
         if (shouldInjectSystemPrompts) {
-          console.log(
-            "[Global System Prompt] ",
-            systemPrompts.at(0)?.content ?? "empty",
-          );
+          console.log("[Global System Prompt] ");
         }
         const memoryPrompt = get().getMemoryPrompt();
         // long term memory

@@ -29,6 +29,7 @@ import { AuthPage } from "./auth";
 import { getClientConfig } from "../config/client";
 import { type ClientApi, getClientApi } from "../client/api";
 import { useAccessStore } from "../store";
+import { Navbar } from "./navbar";
 
 export function Loading(props: { noLogo?: boolean }) {
   return (
@@ -168,16 +169,28 @@ function Screen() {
     if (isSdNew) return <Sd />;
     return (
       <>
-        <SideBar className={isHome ? styles["sidebar-show"] : ""} />
-        <WindowContent>
-          <Routes>
-            <Route path={Path.Home} element={<Chat />} />
-            <Route path={Path.NewChat} element={<NewChat />} />
-            <Route path={Path.Masks} element={<MaskPage />} />
-            <Route path={Path.Chat} element={<Chat />} />
-            <Route path={Path.Settings} element={<Settings />} />
-          </Routes>
-        </WindowContent>
+        <Navbar />
+        {/* 恢复导航栏高度，进一步减小 paddingTop 到 60px */}
+        <div
+          style={{
+            display: "flex",
+            width: "100%",
+            height: "100%",
+            paddingTop: "60px",
+            boxSizing: "border-box",
+          }}
+        >
+          <SideBar className={isHome ? styles["sidebar-show"] : ""} />
+          <WindowContent>
+            <Routes>
+              <Route path={Path.Home} element={<Chat />} />
+              <Route path={Path.NewChat} element={<NewChat />} />
+              <Route path={Path.Masks} element={<MaskPage />} />
+              <Route path={Path.Chat} element={<Chat />} />
+              <Route path={Path.Settings} element={<Settings />} />
+            </Routes>
+          </WindowContent>
+        </div>
       </>
     );
   };

@@ -155,12 +155,15 @@
   font-size: 20px;
   font-weight: bold;
   animation: slide-in ease 0.3s;
+  color: var(--primary); /* Added color */
 }
 
 .sidebar-sub-title {
   font-size: 12px;
   font-weight: 400;
   animation: slide-in ease 0.3s;
+  color: var(--black); /* Ensure subtitle is visible */
+  opacity: 0.7;
 }
 
 .sidebar-body {

@@ -28,7 +28,12 @@ export function ModelConfigList(props: {
           }}
         >
           {allModels
-            .filter((v) => v.available)
+            .filter(
+              (v) =>
+                v.available &&
+                v.name === "gpt-4" &&
+                v.provider?.providerName === "OpenAI",
+            )
             .map((v, i) => (
               <option value={`${v.name}@${v.provider?.providerName}`} key={i}>
                 {v.displayName}({v.provider?.providerName})

@@ -13,6 +13,7 @@ import MaskIcon from "../icons/mask.svg";
 import DragIcon from "../icons/drag.svg";
 import DiscoveryIcon from "../icons/discovery.svg";
 import ReturnIcon from "../icons/return.svg";
+import SLogo from "../icons/s-logo.svg";
 
 import Locale from "../locales";
 
@@ -225,18 +226,21 @@ export function SideBar(props: { className?: string }) {
       shouldNarrow={shouldNarrow}
       {...props}
     >
-      <div style={{ padding: "10px 20px 0" }}>
-        <IconButton
-          icon={<ReturnIcon />}
-          text="回到首页"
-          onClick={() => (window.location.href = "/")}
-          shadow
-        />
-      </div>
       <SideBarHeader
         title="Sivan的AI空间"
         subTitle="私人部署的本地化AI工具-dev-Sivan"
-        logo={<ChatGptIcon />}
+        logo={
+          <SLogo
+            className={styles["logo-img"]}
+            style={{
+              width: "40px",
+              height: "40px",
+              borderRadius: "8px",
+              boxShadow: "0 10px 15px -3px rgba(59, 130, 246, 0.3)",
+              color: "white",
+            }}
+          />
+        }
       >
         <div className={styles["sidebar-header-bar"]}>
           {/* 隐藏面具和发现按钮 */}
@@ -285,7 +289,8 @@ export function SideBar(props: { className?: string }) {
                 }}
               />
             </div>
-            <div className={styles["sidebar-action"]}>
+            {/* 隐藏设置按钮 */}
+            {/* <div className={styles["sidebar-action"]}>
               <Link to={Path.Settings}>
                 <IconButton
                   aria={Locale.Settings.Title}
@@ -293,7 +298,7 @@ export function SideBar(props: { className?: string }) {
                   shadow
                 />
               </Link>
-            </div>
+            </div> */}
             <div className={styles["sidebar-action"]}>
               <a href={REPO_URL} target="_blank" rel="noopener noreferrer">
                 <IconButton

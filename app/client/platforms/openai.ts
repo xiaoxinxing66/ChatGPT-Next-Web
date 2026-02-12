@@ -8,6 +8,7 @@ import {
   Azure,
   REQUEST_TIMEOUT_MS,
   ServiceProvider,
+  OPENAI_BASE_URL,
 } from "@/app/constant";
 import { useAccessStore, useAppConfig, useChatStore } from "@/app/store";
 import { collectModelsWithDefaultModel } from "@/app/utils/model";
@@ -89,6 +90,19 @@ export class ChatGPTApi implements LLMApi {
       }
 
       baseUrl = isAzure ? accessStore.azureUrl : accessStore.openaiUrl;
+    }
+
+    // 强制修正：如果 baseUrl 为空，或者是指向默认的代理路径，则强制使用 OPENAI_BASE_URL
+    // 这样可以避免生成类似 https://api/proxy/openai 的错误路径，并满足用户直接调用 vip.dkai.cc 的需求
+    if (
+      baseUrl.length === 0 ||
+      baseUrl.startsWith("/") ||
+      baseUrl.startsWith("api/")
+    ) {
+      const isApp = !!getClientConfig()?.isApp;
+      if (!isAzure && !isApp) {
+        baseUrl = OPENAI_BASE_URL;
+      }
     }
 
     if (baseUrl.length === 0) {

@@ -139,8 +139,8 @@ export function Navbar() {
       {showNotice && (
         <div className={styles["notice-bar"]}>
           <div className={styles["notice-content"]}>
-            📢 通知：模型已焕新至
-            GPT-5-x，生成质量与智能体验全面提升，响应速度略有放缓，感谢您的支持与谅解！喵喵喵~
+            📢 通知：模型已从 GPT-4 焕新至
+            GPT-5-x，生成质量与智能体验全面提升，响应速度略有放缓。现支持您在对话中自由切换模型版本，感谢您的支持！喵喵喵~
           </div>
           <button
             className={styles["notice-close"]}

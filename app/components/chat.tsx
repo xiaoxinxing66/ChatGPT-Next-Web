@@ -459,9 +459,11 @@ export function ChatActions(props: {
     ServiceProvider.OpenAI;
   const allModels = useAllModels();
   const models = useMemo(() => {
-    // Filter models to only include gpt-5
+    // Filter models to only include gpt-4 and gpt-5
     const filteredModels = allModels.filter(
-      (m) => m.name === "gpt-5" && m.provider?.providerName === "OpenAI",
+      (m) =>
+        (m.name === "gpt-4" || m.name === "gpt-5") &&
+        m.provider?.providerName === "OpenAI",
     );
     return filteredModels;
   }, [allModels]);

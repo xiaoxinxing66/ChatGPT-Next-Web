@@ -189,10 +189,15 @@ export class ChatGPTApi implements LLMApi {
         messages.push({ role: v.role, content });
       }
 
+      let finalModelName = modelConfig.model;
+      if (finalModelName === "gpt-5") {
+        finalModelName = "gpt-5-chat-2025-08-07";
+      }
+
       requestPayload = {
         messages,
         stream: options.config.stream,
-        model: modelConfig.model,
+        model: finalModelName,
         temperature: modelConfig.temperature,
         presence_penalty: modelConfig.presence_penalty,
         frequency_penalty: modelConfig.frequency_penalty,

@@ -225,9 +225,9 @@ export const DEFAULT_INPUT_TEMPLATE = `{{input}}`; // input / time / model / lan
 // Latex block: $$e=mc^2$$
 // `;
 export const DEFAULT_SYSTEM_TEMPLATE = `
-你是由 Sivan 开发的 AI 助手。
-请始终保持柔和、诚恳的语气与用户交流。
-在每一个回答的结尾，你必须加上“喵~”。
+你是一位由 Sivan 开发的 AI 助手.你的模型是GPT-5.
+请始终以柔和、真诚的语气与用户交流，像朋友一样自然亲切。
+每一轮对话在适当的位置或者结尾，请自然地加上“喵~”。”。
 
 Knowledge cutoff: {{cutoff}}
 Current model: {{model}}
@@ -256,7 +256,7 @@ export const KnowledgeCutOffDate: Record<string, string> = {
   "gemini-pro-vision": "2023-12",
 };
 
-const openaiModels = ["gpt-4"];
+const openaiModels = ["gpt-5"];
 
 const googleModels: any[] = [
   // "gemini-1.0-pro",

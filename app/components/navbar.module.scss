@@ -1,6 +1,6 @@
 .navbar {
   width: 100%;
-  padding: 1.5rem 1.5rem; /* 恢复 padding */
+  padding: 1.5rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -188,5 +188,73 @@
 
   @media (min-width: 768px) {
     display: none;
+  }
+}
+
+/* 滚动通知栏样式 */
+.notice-bar {
+  width: 100%;
+  background-color: rgba(24, 27, 64, 0.9); /* red-500 with opacity */
+  color: white;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  overflow: hidden;
+  position: fixed;
+  top: 5.5rem; /* 导航栏高度 (1.5rem * 2 + 2.5rem) = 5.5rem */
+  left: 0;
+  z-index: 40;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  padding-right: 2rem; /* 留出关闭按钮的空间 */
+  box-sizing: border-box;
+}
+
+.notice-content {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%;
+  animation: scroll-left 25s linear infinite; /* 调整滚动速度，数字越大越慢 */
+}
+
+.notice-close {
+  position: absolute;
+  right: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* 确保图标颜色为白色 */
+  opacity: 1; /* 完全不透明 */
+  transition: opacity 0.2s;
+  z-index: 41;
+  background: rgba(255, 255, 255, 0.2); /* 添加半透明白色背景 */
+  border-radius: 50%; /* 圆形背景 */
+  width: 24px; /* 固定宽度 */
+  height: 24px; /* 固定高度 */
+  border: none;
+  padding: 0;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.4); /* 悬停时背景更亮 */
+  }
+
+  /* 确保 SVG 图标填充为白色 */
+  svg {
+    fill: white;
+    path {
+      stroke: white !important; /* 强制 stroke 为白色 */
+      fill: none; /* 确保 fill 为 none */
+    }
+  }
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
   }
 }

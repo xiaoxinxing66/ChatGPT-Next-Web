@@ -31,7 +31,7 @@ export function ModelConfigList(props: {
             .filter(
               (v) =>
                 v.available &&
-                v.name === "gpt-4" &&
+                v.name === "gpt-5" &&
                 v.provider?.providerName === "OpenAI",
             )
             .map((v, i) => (

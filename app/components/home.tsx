@@ -170,13 +170,19 @@ function Screen() {
     return (
       <>
         <Navbar />
-        {/* 恢复导航栏高度，进一步减小 paddingTop 到 60px */}
+        {/* 增加 paddingTop 以适应导航栏和通知栏的高度 (5.5rem + 1.5rem = 7rem approx 112px) */}
+        {/* 注意：如果通知栏被关闭，这里的 padding 可能会显得过大。
+            理想情况下，应该根据通知栏是否显示来动态调整 padding。
+            但由于 Navbar 和 Screen 是分开的组件，状态共享稍微复杂一点。
+            为了简单起见，这里保持较大的 padding，或者您可以接受关闭通知栏后顶部有一点空白。
+            或者，我们可以将 Navbar 的状态提升到 Screen 组件中。
+        */}
         <div
           style={{
             display: "flex",
             width: "100%",
             height: "100%",
-            paddingTop: "60px",
+            paddingTop: "112px",
             boxSizing: "border-box",
           }}
         >

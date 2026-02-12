@@ -1,4 +1,6 @@
-FROM node:18-alpine AS base
+FROM docker.m.daocloud.io/node:18-alpine AS base
+
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 FROM base AS deps
 

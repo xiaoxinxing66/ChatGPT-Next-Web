@@ -69,7 +69,8 @@ export interface ChatSession {
 export const DEFAULT_TOPIC = Locale.Store.DefaultTopic;
 export const BOT_HELLO: ChatMessage = createMessage({
   role: "assistant",
-  content: Locale.Store.BotHello,
+  content:
+    "你好！我是 Sivan 开发的 AI 助手喵~\n\n虽然我很努力，但 AI 偶尔也可能会犯错，请以批判的眼光看待我的回答哦。\n\n如果你有任何问题或建议，欢迎通过邮箱联系 Sivan：[2507932331@qq.com](mailto:2507932331@qq.com) 喵~",
 });
 
 function createEmptySession(): ChatSession {

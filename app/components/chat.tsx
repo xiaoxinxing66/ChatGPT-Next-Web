@@ -459,18 +459,11 @@ export function ChatActions(props: {
     ServiceProvider.OpenAI;
   const allModels = useAllModels();
   const models = useMemo(() => {
-    const filteredModels = allModels.filter((m) => m.available);
-    const defaultModel = filteredModels.find((m) => m.isDefault);
-
-    if (defaultModel) {
-      const arr = [
-        defaultModel,
-        ...filteredModels.filter((m) => m !== defaultModel),
-      ];
-      return arr;
-    } else {
-      return filteredModels;
-    }
+    // Filter models to only include gpt-4
+    const filteredModels = allModels.filter(
+      (m) => m.name === "gpt-4" && m.provider?.providerName === "OpenAI",
+    );
+    return filteredModels;
   }, [allModels]);
   const currentModelName = useMemo(() => {
     const model = models.find(
@@ -508,11 +501,11 @@ export function ChatActions(props: {
         session.mask.modelConfig.providerName = nextModel?.provider
           ?.providerName as ServiceProvider;
       });
-      showToast(
-        nextModel?.provider?.providerName == "ByteDance"
-          ? nextModel.displayName
-          : nextModel.name,
-      );
+      // showToast(
+      //   nextModel?.provider?.providerName == "ByteDance"
+      //     ? nextModel.displayName
+      //     : nextModel.name,
+      // );
     }
   }, [chatStore, currentModel, models]);
 

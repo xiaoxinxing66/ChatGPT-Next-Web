@@ -8,6 +8,7 @@ import { useState } from "react";
 export function Navbar() {
   const navigate = useNavigate();
   const [showNotice, setShowNotice] = useState(true);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   return (
     <>
@@ -18,7 +19,9 @@ export function Navbar() {
         >
           <SLogo className={styles["logo-img"]} />
           <span className={styles["site-title"]}>Sivan&apos;s AI Space</span>
-          <span className={styles["site-title-mobile"]}>Sivan AI</span>
+          <span className={styles["site-title-mobile"]}>
+            Sivan&apos;s AI Space
+          </span>
         </div>
 
         {/* PC Menu */}
@@ -130,10 +133,97 @@ export function Navbar() {
         </div>
 
         {/* Mobile Menu Button */}
-        <button id="mobile-menu-btn" className={styles["mobile-menu-btn"]}>
+        <button
+          id="mobile-menu-btn"
+          className={styles["mobile-menu-btn"]}
+          onClick={() => setShowMobileMenu(!showMobileMenu)}
+        >
           <i className="fas fa-bars"></i>
         </button>
       </nav>
+
+      {/* Mobile Menu Dropdown */}
+      {showMobileMenu && (
+        <div className={styles["mobile-menu-dropdown"]}>
+          <a href="/" className={styles["mobile-menu-item"]}>
+            首页
+          </a>
+          <a href="/archives" className={styles["mobile-menu-item"]}>
+            文章全览
+          </a>
+          <a
+            href="https://blog.csdn.net/weixin_62633072"
+            target="_blank"
+            rel="noreferrer"
+            className={styles["mobile-menu-item"]}
+          >
+            技术博客 <i className="fas fa-external-link-alt"></i>
+          </a>
+          <div className={styles["mobile-menu-divider"]}></div>
+          <div className={styles["mobile-menu-label"]}>AI 工具箱</div>
+          <a
+            href="https://chat.openai.com/"
+            target="_blank"
+            rel="noreferrer"
+            className={styles["mobile-menu-item"]}
+          >
+            <i className="fas fa-robot" style={{ color: "#4ade80" }}></i>{" "}
+            ChatGPT
+          </a>
+          <a
+            href="https://claude.ai/"
+            target="_blank"
+            rel="noreferrer"
+            className={styles["mobile-menu-item"]}
+          >
+            <i className="fas fa-brain" style={{ color: "#fb923c" }}></i> Claude
+          </a>
+          <a
+            href="https://kimi.moonshot.cn/"
+            target="_blank"
+            rel="noreferrer"
+            className={styles["mobile-menu-item"]}
+          >
+            <i className="fas fa-moon" style={{ color: "#60a5fa" }}></i> Kimi
+          </a>
+          <a
+            href="https://www.doubao.com/"
+            target="_blank"
+            rel="noreferrer"
+            className={styles["mobile-menu-item"]}
+          >
+            <i className="fas fa-comment-dots" style={{ color: "#c084fc" }}></i>{" "}
+            豆包
+          </a>
+          <a
+            href="https://yiyan.baidu.com/"
+            target="_blank"
+            rel="noreferrer"
+            className={styles["mobile-menu-item"]}
+          >
+            <i className="fas fa-dragon" style={{ color: "#3b82f6" }}></i>{" "}
+            文心一言
+          </a>
+          <a
+            href="https://tongyi.aliyun.com/"
+            target="_blank"
+            rel="noreferrer"
+            className={styles["mobile-menu-item"]}
+          >
+            <i className="fas fa-cloud" style={{ color: "#818cf8" }}></i>{" "}
+            通义千问
+          </a>
+          <a
+            href="https://www.midjourney.com/"
+            target="_blank"
+            rel="noreferrer"
+            className={styles["mobile-menu-item"]}
+          >
+            <i className="fas fa-paint-brush" style={{ color: "#f472b6" }}></i>{" "}
+            Midjourney
+          </a>
+        </div>
+      )}
 
       {/* 滚动通知栏 */}
       {showNotice && (

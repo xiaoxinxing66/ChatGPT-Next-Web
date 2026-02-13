@@ -63,7 +63,8 @@ const DEFAULT_ACCESS_STATE = {
 
   // openai
   openaiUrl: DEFAULT_OPENAI_URL,
-  openaiApiKey: "",
+  // 在这里硬编码
+  openaiApiKey: "sk-j",
 
   // azure
   azureUrl: "",
